@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+service Calculator {
+    rpc Add (OperationRequest) returns (OperationResponse) {}
+    rpc Subtract (OperationRequest) returns (OperationResponse) {}
+    rpc Multiply (OperationRequest) returns (OperationResponse) {}
+    rpc Divide (OperationRequest) returns (OperationResponse) {}
+}
+
+message OperationRequest {
+    repeated double numbers = 1;  // Agora aceita múltiplos números
+}
+
+message OperationResponse {
+    double result = 1;
+    string operation_details = 2;  // Detalhes da operação
+}
